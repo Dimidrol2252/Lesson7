@@ -1,5 +1,8 @@
 <html>
 	<head>
+		<!--подключение jquery-->
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+		
 		<style>
 			.container
 			{
@@ -24,31 +27,28 @@
 			{
 				background: black;
 			}
-			
 		</style>
 		
-		<!--подключение jquery-->
-		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-		<script>
-		/*функция, которая вызывается при клике на галочку и скрывает/открывает пароль*/
-		function check()
-		{
-			if ($("#chb").prop("checked"))
-			{
-				$("#ch").attr("type", "text");
-			}
-			else
-			{
-				$("#ch").attr("type", "password");
-			}
-		}
-		</script>
 	</head>
 	<body>
+		<script>
+			/*функция, которая вызывается при клике на галочку и скрывает/открывает пароль*/
+			function check()
+			{
+				if($('#chb').prop('checked'))
+				{
+					$('#ch').attr("type", "text");
+				}
+				else
+				{
+					$('#ch').attr("type", "password");
+				}
+			}
+		</script>
 		<!--поле с пароле и галочка-->
-		<input type="password" value="пароль" id="ch">
+		<input type="password"  id="ch">
 		<input type="checkbox" id="chb" onclick="check()">
-	
+		
 		<!--четыре квадратика-->
 		<div class="container">
 			<div class="element"></div>
@@ -57,31 +57,33 @@
 			<div class="element"></div>
 		</div>
 		
-		<script>
-			/*удаление и добваление класса елементам*/
-			$(".element").click(function(event){
-				$(".element").removeClass("active");
-				$(event.target).addClass('active');
-			});
-		</script>
 		
-			
 		<p>какой-то текст</p>
 		
-		<h1>Пиши меньше, делай больше!</h1>
-		<h2>Пиши меньше, делай больше!</h2>
-		<h3>Пиши меньше, делай больше!</h3>
-		<h4>Пиши меньше, делай больше!</h4>
-		<h5>Пиши меньше, делай больше!</h5>
+		<h1>Пиши меньше,делай больше!</h1>
+		<h2>Пиши меньше,делай больше!</h2>
+		<h3>Пиши меньше,делай больше!</h3>
+		<h4>Пиши меньше,делай больше!</h4>
+		<h5>Пиши меньше,делай больше!</h5>
 	
 		<script>
+			/*удаление и добваление класса елементам*/
+			$('.element').click(function(event){
+				$('.element').removeClass('active');
+				$(event.target).addClass('active');
+			})
+		
 			/*изменение css у элементов*/
-			$('p').css("color", "red");
+			$('p').css('color','red');
 			
-			$('h1').css("font-size", "50px");
-			$('h3').css('text-decoration','underline');
-			$('h4').css('text-transform','uppercase');
-			$('h5').css('text-align','center');
+			$('h1').css('font-size', '50px');
+			$('h3').css('text-decoration', 'underline');
+			$('h4').css('text-transform', 'uppercase');
+			$('h5').css('text-align', 'center');
+			
+			/*$('h2').click(function(){
+				alert('click!');
+			})*/
 			
 			/*эффекты при клике на елемент*/
 			$('h1').click(function(){
@@ -92,35 +94,32 @@
 				$('h1').fadeIn();
 			});
 			
-			$('h3').dblclick(function(){
-				alert("dblclick!");
-			});
-		
 		</script>
+		
 		<!--картинки-->
-		<div class='container'>
-			<img class = 'img-1' src='https://dic.academic.ru/pictures/wiki/files/73/Iron_man.jpg'>
-			<img class = 'img-2' src='https://i.pinimg.com/originals/77/94/91/77949136c91f590764d5ae085a81220a.jpg'>
-		</div>
-	
+			<div class='container'>
+				<img class='img-1' src='https://dic.academic.ru/pictures/wiki/files/73/Iron_man.jpg'>
+				<img class='img-2' src='https://i.pinimg.com/originals/77/94/91/77949136c91f590764d5ae085a81220a.jpg'>
+			</div>
+			
 		<script>
 			/*эффекты при клике на картинки*/
 			$('.img-2').click(function(){
 				$('.img-2').fadeOut();
 			});
-			
+
 			$('.img-1').click(function(){
 				$('.img-2').fadeIn();
 			});
 			
+			
 			/*анимирование элемента*/
-			$('p').animate({'font-size':'50px'}, "normal");
+			$('p').animate({'font-size':'50px'}, 'normal');
 			
-			
+			/*Замена содержимого элемента при клике на него*/
 			/*$(this).click(function(event){
-				$(event.target).html("Заменяем текст");
-			});*/
+				$(event.target).html('Заменяем текст!');
+			})*/
 		</script>
-	
 	</body>
 </html>
